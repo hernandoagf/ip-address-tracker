@@ -1,0 +1,177 @@
+:root {
+	--fnt-400: 400;
+	--fnt-500: 500;
+	--fnt-700: 700;
+
+	--clr-200: hsl(0, 0%, 17%);
+	--clr-400: hsl(0, 0%, 59%);
+	--clr-800: hsl(0, 0%, 100%);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Rubik', sans-serif;
+	font-size: 18px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+header {
+	width: 100%;
+	height: 13em;
+	background-image: url('images/pattern-bg.png');
+	text-align: center;
+	padding: 1.5em;
+}
+
+header h2 {
+	color: var(--clr-800);
+}
+
+.search {
+	background-color: var(--clr-800);
+	width: 22em;
+	height: 2em;
+	margin: 1em auto;
+	border-radius: 0.7em;
+	display: flex;
+}
+
+input,
+.btn {
+	outline: none;
+	border: none;
+}
+
+input {
+	width: 90%;
+	border-radius: 0.7em 0 0 0.7em;
+	padding: 0 1.2em;
+}
+
+input::placeholder {
+	color: var(--clr-400);
+}
+
+.btn {
+	width: 10%;
+	border-radius: 0 0.7em 0.7em 0;
+	cursor: pointer;
+	background-color: var(--clr-200);
+	transition: background-color 0.1s linear;
+}
+
+.btn:hover {
+	background-color: var(--clr-400);
+}
+
+main {
+	width: 100%;
+	height: calc(100vh - 13em);
+	position: relative;
+}
+
+.data {
+	width: 80vw;
+	height: 7em;
+	position: absolute;
+	z-index: 1;
+	top: -3.6em;
+	left: 10vw;
+	padding: 1.5em 1.2em;
+	border-radius: 0.5em;
+	background-color: var(--clr-800);
+	box-shadow: 0 0.5em 3em hsla(0, 0%, 0%, 0.2);
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	overflow: hidden;
+}
+
+.data div {
+	width: 20%;
+	position: relative;
+	height: 100%;
+}
+
+.data div:nth-of-type(2) {
+	width: 30%;
+}
+
+.data h5 {
+	font-size: 0.7rem;
+	font-weight: var(--fnt-700);
+	text-transform: uppercase;
+	letter-spacing: 0.09rem;
+	color: var(--clr-400);
+}
+
+.data div + div::before {
+	content: '';
+	position: absolute;
+	height: 3.5em;
+	border-left: 1px solid hsl(0, 0%, 90%);
+	left: -1.5em;
+	top: 0.4em;
+}
+
+h5 + h2 {
+	margin-top: 0.3em;
+}
+
+h2 {
+	color: var(--clr-200);
+	font-weight: var(--fnt-700);
+	font-size: clamp(0.65em, 1.8vw, 1.4em);
+}
+
+#map {
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.attribution {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@media (max-width: 650px) {
+	.data {
+		width: 90vw;
+		height: auto;
+		top: -5.5em;
+		left: 5vw;
+		flex-direction: column;
+	}
+
+	.data div {
+		width: 100%;
+		text-align: center;
+	}
+
+	.data div + div {
+		margin-top: 1.5em;
+	}
+
+	.data div:nth-of-type(2) {
+		width: 100%;
+	}
+
+	h2 {
+		font-size: 1.4rem;
+	}
+}
