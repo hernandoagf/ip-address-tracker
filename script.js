@@ -51,7 +51,7 @@ const customMarker = L.icon({
   iconAnchor:   [19, 45], // point of the icon which will correspond to marker's location
 });
 
-window.addEventListener('load', () => search())
+window.addEventListener('DOMContentLoaded', () => search())
 
 document.querySelector('#searchbox').addEventListener('keyup', e => {
   if (e.keyCode === 13) search()
